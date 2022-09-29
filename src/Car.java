@@ -9,13 +9,37 @@ public class Car {
     String productionCountry;
 
     Car(String brand, String model, double engineValue, String color, int productionYear, String productionCountry) {
-        this.brand = brand;
-        this.model = model;
-        this.engineValue = engineValue;
-        this.color = color;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
+        if (brand == null) {
+            this.brand = "<<default>>";
+        } else {
+            this.brand = brand;}
+
+        if (model == null) {
+            this.model = "<<default>>";
+        } else {
+            this.model = model;}
+
+        if (color == null) {
+            this.color = "Белый";
+        } else {
+            this.color = color;}
+
+        if (engineValue <= 0) {
+            this.engineValue = 1.5;
+        } else {
+            this.engineValue = engineValue;}
+
+        if (productionYear <= 0) {
+            this.productionYear = 2000;
+        } else {
+            this.productionYear = productionYear;}
+
+        if (productionCountry == null) {
+            this.productionCountry = "<<default>>";
+        } else {
+            this.productionCountry = brand;}
     }
+
 
     void info() {
         System.out.println("");
