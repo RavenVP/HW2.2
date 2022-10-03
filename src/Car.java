@@ -9,32 +9,33 @@ public class Car {
     String productionCountry;
 
     Car(String brand, String model, double engineValue, String color, int productionYear, String productionCountry) {
-        if (brand == null) {
+
+        if (brand == null || brand.isBlank() || brand.isEmpty()) {
             this.brand = "<<default>>";
         } else {
             this.brand = brand;}
 
-        if (model == null) {
+        if (model == null || model.isBlank() || model.isEmpty()) {
             this.model = "<<default>>";
         } else {
             this.model = model;}
 
-        if (color == null) {
+        if (color == null || color.isBlank() || color.isEmpty()) {
             this.color = "Белый";
         } else {
             this.color = color;}
 
-        if (engineValue <= 0) {
+        if (engineValue <= 0 ) {
             this.engineValue = 1.5;
         } else {
             this.engineValue = engineValue;}
 
-        if (productionYear <= 0) {
+        if (productionYear <= 0 ) {
             this.productionYear = 2000;
         } else {
             this.productionYear = productionYear;}
 
-        if (productionCountry == null) {
+        if (productionCountry == null || productionCountry.isBlank() || productionCountry.isEmpty()) {
             this.productionCountry = "<<default>>";
         } else {
             this.productionCountry = brand;}

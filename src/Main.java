@@ -4,11 +4,13 @@ public class Main {
         Person anna = new Person("Аня","Москва", 1993,"методист образовательных программ");
         Person kate = new Person("Катя","Калининград", 1994,"продакт-менеджер");
         Person artem = new Person(null,null, -4,"директор по развитию бизнесса");
+        Person vladimir = new Person("Владимир","Казань", 2001,null);
 
         maxim.say();
         anna.say();
         kate.say();
         artem.say();
+        vladimir.say();
 
 
         Car car1 = new Car(null,"Grande",1.7,"Жёлтый", -2015,"Россия");

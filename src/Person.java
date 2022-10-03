@@ -1,34 +1,46 @@
 public class Person {
-    int age;
+    private int yearOfBirth;
     String name;
-    String city;
+     private String city;
     String work;
 
-    Person(String name, String city, int age, String work) {
-        if (name == null) {
+    Person(String name, String city, int yearOfBirth, String work) {
+        if (name == null || name.isBlank() || name.isEmpty()) {
             this.name = "<<Информация не указана>>";
         } else {
             this.name = name;
         }
-        if (city == city) {
+        if (city == null || city.isBlank() || city.isEmpty()) {
             this.city = "<<Информация не указана>>";
         } else {
             this.city = city;
         }
-        if (age <= 0) {
-            this.age = 0;
+        if (yearOfBirth <= 0 ) {
+            this.yearOfBirth = 0;
         } else {
-            this.age = age;
+            this.yearOfBirth = yearOfBirth;
         }
-        if (name == null) {
+        if (work == null || work.isBlank() || work.isEmpty()) {
             this.work = "<<Информация не указана>>";
         } else {
-            this.work = name;
+            this.work = work;
         }
     }
 
 
     void say() {
-        System.out.println("Привет! Меня зовут " + name + ". Я из города " + city + ". Я родился в " + age + " году. Я работаю на должности " + work + ". Будем знакомы!" );
+        System.out.println("Привет! Меня зовут " + name + ". Я из города " + city + ". Я родился в " + yearOfBirth + " году. Я работаю на должности " + work + ". Будем знакомы!" );
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public String getCity() {
+        return city;
     }
 }
