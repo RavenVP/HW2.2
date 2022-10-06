@@ -1,6 +1,6 @@
 package transport;
 
-import javax.swing.*;
+import java.time.LocalDate;
 
 public class Car {
     private String brand;
@@ -15,6 +15,32 @@ public class Car {
     private int seats;
     String tyreSeason;
     int seasonTyreVariator;
+    private Key key;
+    private Insurance insurance;
+
+    public static class Key {
+        private String remoteEngine;
+        private String withOutKey;
+
+        public String getRemoteEngine() {return remoteEngine;}
+        public void setRemoteEngine(String remoteEngine) {this.remoteEngine = remoteEngine;}
+        public String getWithOutKey() {return withOutKey;}
+        public void setWithOutKey(String withOutKey){this.withOutKey = withOutKey;}
+
+
+
+        public Key(String remoteEngine, String withOutKey) {
+            if (remoteEngine == null || remoteEngine.isBlank() || remoteEngine.isEmpty()) {
+                this.remoteEngine = "<<default>>";
+            } else {
+                this.remoteEngine = remoteEngine;}
+            if (withOutKey == null || withOutKey.isBlank() || withOutKey.isEmpty()) {
+                this.withOutKey = "<<default>>";
+            } else {
+                this.withOutKey = withOutKey;}
+
+        }
+    }
 
     public Car(String brand, String model, double engineValue, String color, int productionYear, String productionCountry,String bodyType, String regNumber, int seats, int seasonTyreVariator,String transmission) {
 
@@ -98,7 +124,31 @@ public class Car {
         System.out.println("Номер -> " + regNumber);
         System.out.println("Коробка передач -> " + transmission);
         System.out.println("Резина -> " + tyreSeason);
+        System.out.println("Удалённый запуск двигателя -> " + key.remoteEngine);
+        System.out.println("Бесключевой доступ -> " + key.withOutKey);
+        if (insurance.periodInsurance.isBefore(LocalDate.now())) {
+            System.out.println("Срок действия страховки ->  Просрочена " );
+        } else System.out.println("Срок действия страховки ->" + insurance.periodInsurance);
+        if (insurance.numberInsurance.length() < 9) {
+            System.out.println("Номер страховки ->  Неверный ввод " );
+        } else System.out.println("Номер страховки -> " + insurance.numberInsurance);
+        System.out.println("Стоимость страховки -> " + insurance.costInsurance);
+    }
 
+    public static class Insurance {
+        private final LocalDate periodInsurance ;
+        private double costInsurance;
+        private String numberInsurance;
+        public void setCostInsurance(double costInsurance) {this.costInsurance = costInsurance;}
+
+        public void setNumberInsurance(String numberInsurance) {this.numberInsurance = numberInsurance;}
+
+
+        public Insurance(LocalDate periodInsurance, double costInsurance, String numberInsurance) {
+            this.periodInsurance = periodInsurance;
+            this.costInsurance = costInsurance;
+            this.numberInsurance = numberInsurance;
+        }
     }
 
     public String getBrand() {
@@ -164,4 +214,12 @@ public class Car {
     public void setTyreSeason(String tyreSeason) {
         this.tyreSeason = tyreSeason;
     }
+
+    public Key getKey() {return key;}
+
+    public void setKey(Key key) {this.key = key;}
+
+    public Insurance getInsurance() {return insurance;}
+
+    public void setInsurance(Insurance insurance) {this.insurance = insurance;}
 }
