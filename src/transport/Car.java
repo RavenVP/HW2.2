@@ -2,13 +2,13 @@ package transport;
 
 import java.time.LocalDate;
 
-public class Car {
-    private String brand;
-    private String model;
+public class Car extends Transport {
+    //private String brand;
+    //private String model;
+    //String color;
+    //private int productionYear;
+    //private String productionCountry;
     double engineValue;
-    String color;
-    private int productionYear;
-    private String productionCountry;
     String transmission;
     private String bodyType;
     String regNumber;
@@ -17,6 +17,7 @@ public class Car {
     int seasonTyreVariator;
     private Key key;
     private Insurance insurance;
+
 
     public static class Key {
         private String remoteEngine;
@@ -42,37 +43,38 @@ public class Car {
         }
     }
 
-    public Car(String brand, String model, double engineValue, String color, int productionYear, String productionCountry,String bodyType, String regNumber, int seats, int seasonTyreVariator,String transmission) {
+    public Car(  String brand, String model,double engineValue,String color,int productionYear, String productionCountry, String bodyType, String regNumber, int seats, int seasonTyreVariator,String transmission, int maxSpeed) {
+        super(brand,model,color,productionYear, productionCountry,maxSpeed);
+//        if (brand == null || brand.isBlank() || brand.isEmpty()) {
+//            this.brand = "<<default>>";
+//        } else {
+//            this.brand = brand;}
+//
+//        if (model == null || model.isBlank() || model.isEmpty()) {
+//            this.model = "<<default>>";
+//        } else {
+//            this.model = model;}
+//
+//        if (color == null || color.isBlank() || color.isEmpty()) {
+//            this.color = "Белый";
+//        } else {
+//            this.color = color;}
+//
+//        if (productionYear <= 0 ) {
+//            this.productionYear = 2000;
+//        } else {
+//            this.productionYear = productionYear;}
+//
+//        if (productionCountry == null || productionCountry.isBlank() || productionCountry.isEmpty()) {
+//            this.productionCountry = "<<default>>";
+//        } else {
+//            this.productionCountry = brand;}
 
-        if (brand == null || brand.isBlank() || brand.isEmpty()) {
-            this.brand = "<<default>>";
-        } else {
-            this.brand = brand;}
-
-        if (model == null || model.isBlank() || model.isEmpty()) {
-            this.model = "<<default>>";
-        } else {
-            this.model = model;}
-
-        if (color == null || color.isBlank() || color.isEmpty()) {
-            this.color = "Белый";
-        } else {
-            this.color = color;}
 
         if (engineValue <= 0 ) {
             this.engineValue = 1.5;
         } else {
             this.engineValue = engineValue;}
-
-        if (productionYear <= 0 ) {
-            this.productionYear = 2000;
-        } else {
-            this.productionYear = productionYear;}
-
-        if (productionCountry == null || productionCountry.isBlank() || productionCountry.isEmpty()) {
-            this.productionCountry = "<<default>>";
-        } else {
-            this.productionCountry = brand;}
 
         if (bodyType == null || bodyType.isBlank() || bodyType.isEmpty()) {
             this.bodyType = "<<default>>";
@@ -112,12 +114,13 @@ public class Car {
 
 
     public void info() {
-        System.out.println("");
-        System.out.println("Бренд -> " + brand);
-        System.out.println("Модель -> " + model);
-        System.out.println("Год выпуска -> " + productionYear);
-        System.out.println("Сборка -> " + productionCountry);
-        System.out.println("Цвет  -> " + color);
+        super.info();
+//        System.out.println("");
+//        System.out.println("Бренд -> " + brand);
+//        System.out.println("Модель -> " + model);
+//        System.out.println("Год выпуска -> " + productionYear);
+//        System.out.println("Сборка -> " + productionCountry);
+        System.out.println("Цвет  -> " + getColor());
         System.out.println("Объём двигателя -> " + engineValue);
         System.out.println("Тип кузова -> " + bodyType);
         System.out.println("Кол-во сидений -> " + seats);
@@ -126,6 +129,7 @@ public class Car {
         System.out.println("Резина -> " + tyreSeason);
         System.out.println("Удалённый запуск двигателя -> " + key.remoteEngine);
         System.out.println("Бесключевой доступ -> " + key.withOutKey);
+        System.out.println("Максимальная скорость -> " + getMaxSpeed());
         if (insurance.periodInsurance.isBefore(LocalDate.now())) {
             System.out.println("Срок действия страховки ->  Просрочена " );
         } else System.out.println("Срок действия страховки ->" + insurance.periodInsurance);
@@ -151,21 +155,21 @@ public class Car {
         }
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
-    }
+//    public String getBrand() {
+//        return brand;
+//    }
+//
+//    public String getModel() {
+//        return model;
+//    }
+//
+//    public int getProductionYear() {
+//        return productionYear;
+//    }
+//
+//    public String getProductionCountry() {
+//        return productionCountry;
+//    }
 
     public String getBodyType() {
         return bodyType;
@@ -183,13 +187,13 @@ public class Car {
         this.engineValue = engineValue;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
+//    public String getColor() {
+//        return color;
+//    }
+//
+//    public void setColor(String color) {
+//        this.color = color;
+//    }
 
     public String getTransmission() {
         return transmission;
