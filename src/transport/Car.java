@@ -106,6 +106,7 @@ public class Car extends Transport {
     }
 
     public void refill() {
+        System.out.println("Топливо -> " + getFuel());
     }
 
     public static class Insurance {

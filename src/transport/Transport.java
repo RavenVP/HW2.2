@@ -22,8 +22,6 @@ public abstract class Transport {
 
     public String getFuel() {return fuel;}
 
-    public void setFuel(String fuel) {this.fuel = fuel;}
-
     public abstract void refill();
 
 
@@ -34,7 +32,7 @@ public abstract class Transport {
         System.out.println("Год выпуска -> " + productionYear);
          System.out.println("Сборка -> " + productionCountry);
         System.out.println("Максимальная скорость -> " + getMaxSpeed() + " Км/ч");
-        System.out.println("Топливо -> " + getFuel());
+
     }
 
     public Transport (String brand, String model, String color, int productionYear, String productionCountry, int maxSpeed, String fuel) {

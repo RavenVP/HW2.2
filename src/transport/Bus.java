@@ -8,6 +8,7 @@ public class Bus extends Transport {
 
     @Override
     public void refill() {
+        System.out.println("Топливо -> " + getFuel());
     }
 
     public void info() {
