@@ -1,12 +1,13 @@
 package transport;
 
-public class Transport {
+public abstract class Transport {
     private String brand;
     private String model;
     private String color;
     private int productionYear;
     private String productionCountry;
     private int maxSpeed;
+    private String fuel;
 
     public String getBrand() {return brand;}
 
@@ -19,6 +20,13 @@ public class Transport {
     public int getMaxSpeed() {return maxSpeed;}
     public void setMaxSpeed(int maxSpeed) {this.maxSpeed = maxSpeed;}
 
+    public String getFuel() {return fuel;}
+
+    public void setFuel(String fuel) {this.fuel = fuel;}
+
+    public abstract void refill();
+
+
     public void info() {
         System.out.println("");
         System.out.println("Название || Бренд -> " + brand);
@@ -26,9 +34,16 @@ public class Transport {
         System.out.println("Год выпуска -> " + productionYear);
          System.out.println("Сборка -> " + productionCountry);
         System.out.println("Максимальная скорость -> " + getMaxSpeed() + " Км/ч");
+        System.out.println("Топливо -> " + getFuel());
     }
 
-    public Transport (String brand, String model, String color, int productionYear, String productionCountry, int maxSpeed) {
+    public Transport (String brand, String model, String color, int productionYear, String productionCountry, int maxSpeed, String fuel) {
+
+        if (fuel == null || fuel.isBlank() || fuel.isEmpty()) {
+            this.fuel = "<<default>>";
+        } else {
+            this.fuel = fuel;
+        }
 
         if (brand == null || brand.isBlank() || brand.isEmpty()) {
             this.brand = "<<default>>";

@@ -22,12 +22,16 @@ public class Train extends Transport {
 
     public void setNumWagons(int numWagons) {this.numWagons = numWagons;}
 
-    public Train(String brand, String model, String color, int productionYear, String productionCountry, int maxSpeed, int tripCost, String startPoint, String finalPoint, int numWagons) {
-        super(brand, model, color, productionYear, productionCountry, maxSpeed);
+    public Train(String brand, String model, String color, int productionYear, String productionCountry, int maxSpeed, int tripCost, String startPoint, String finalPoint, int numWagons,String fuel) {
+        super(brand, model, color, productionYear, productionCountry, maxSpeed,fuel);
         this.tripCost = tripCost;
         this.startPoint = startPoint;
         this.finalPoint = finalPoint;
         this.numWagons = numWagons;
+    }
+
+    @Override
+    public void refill() {
     }
 
     public void info() {
